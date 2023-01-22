@@ -1,0 +1,154 @@
+\documentclass[11pt]{article}
+
+\usepackage{fullpage}
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+\usepackage{hyperref}
+
+\title{Software Edge Defined Computing :Principles, Open System Architecture}
+\author{Pengfei Hu; Wai Chen}
+\date{} %don't display the current date
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+
+    Edge computing is a bridge for realizing the convergence between physical space and cyber space in the Internet of Things (IoT) paradigm. Large numbers of physical objects produce a huge amount of data that needs to be efficiently processed in the edge side. This situation urgently requires novel ideas and framework in the design and management of edge computing to improve and enhance its performance. The SDEC can also help realize flexible management and intelligent collaboration among various edge hardware resources and services by way of software. To this end, we design an SDEC-based open IoT system architecture which decouples upper level IoT applications from the underlying physical edge resources and builds dynamically reconfigurable smart edge services. The software-definition mechanism of the SDEC platform is proposed to introduce the detailed processes that the underlying physical devices are defined in the form of software.The SDEC paradigm can share, reuse, recombine, and reconfigure edge resources and services so that the overall service capability of the edge side can be improved.
+  
+\end{abstract}
+
+\section{Introduction}
+
+The rapid development of Cyber-Physical System (CPS) and Internet of Things (IoT) makes the collaborative interaction and cross-border integration among people, machines and things more frequently.
+
+In the current IoT and edge computing, more and more hardware devices are connected into cyber space
+
+These edge devices are heterogeneous, which is one of the main challenges to realize the unified management and information sharing.
+
+We propose the idea of software-defined edge computing (SDEC) and the SDEC-based open edge computing system architecture in order to synergistically manage the heterogeneous edge resources.
+
+From the perspective of cyber-physical mapping, the principles of SDEC are proposed to realize the software definition of edge device resources, edge storage resources, edge computing resources and edge services, and decouple the software control and management functions from underlying physical devices.
+
+
+
+\section{Related Works}
+
+In order to realize edge resources sharing, some researchers have adopted the virtualization technologies which are applied to cloud computing in edge computing, e.g., hypervisor, container, and so on. Wang et al [8] have proposed a lightweight edge computing platform based on virtualization technology. The container is used to accomplish the virtualization of computing and storage resources. The container engine abstracts the computing and storage resources of physical infrastructure to implement resources sharing. This scheme abstract and virtualize edge resources from the container level, where resources are not modeled and described. It does not achieve the complete decoupling between software and hardware.
+
+
+\section{Principles Of SDEC}
+\subsection{Overview}
+\begin{figure}[h]
+\begin{center}
+\includegraphics[scale=0.5]{ning2-2954528-small.png}
+\end{center}
+\caption{Relational View Of Components in SDEC}
+\label{setup}
+\end{figure}
+
+The concept of software definition is an emerging paradigm that has appeared to hide the management complexity of hardware infrastructures in traditional system architecture.It extends the concepts of software definition and virtualization modeling to the various resources and services in edge side.The SDEC controller schedules, manages and controls abstracted resources and services to implement various edge applications.
+
+
+\subsection{Software-Defined Edge Device (SDED)}
+The development of current edge computing and IoT is industry-specific and domain-dependent, and fragmented in terms of standards and technologies.
+Into four categories: general terminal device (GTD), edge computing node (ECN), edge management node (EMN) and edge storage device (ESD).The main function is to host and run the SDEC platform, manage and coordinate ECNs, GTDs and ESD
+
+It is responsible for interacting with other EMNs or cloud data center.The applications programmers do not need to worry about the details of underlying edge devices, and can make full use of the programmability of hardwareThese scattered edge devices can be uniformly managed, scheduled, shared, and dynamically reconfigured.Their service capacities can be fully utilized, and the overall edge service performance can be greatly improved
+
+
+\subsection{Software-Defined Edge Storage (SDESto)}
+The storage capacity is relatively weak compared with large-scale cloud data centers.The utilization and scheduling of edge storage resources in an efficient manner is the key to improve overall edge storage capacity.A flexible storage resource management approach needs to be designed to meet the demands of diversified storage services [15].
+
+SDESto is proposed to address the control and management challenges in edge storageIt manages and schedules edge storage resources by separating control layer from edge storage infrastructure.
+The control layer is the bridge where smart edge applications interact with edge storage infrastructure.By edge storage resource management and scheduling methods, appropriate resources can be matched and discovered to meet application demands.
+The flexible edge storage resources management manner improves the availability, reliability and efficiency of edge system, and meets the demands for diversified storage services
+
+
+\subsection{Software-Defined Edge Computing Resource (SDECR)}
+
+There are a lot of edge computing devices or nodes designed and produced by different manufacturers in edge scenarios.According to the classification for edge devices, ECN is the main computing capabilities provider, and some capabilities of EMN are used as computing.
+
+They have the characteristics of strong heterogeneity, different performance parameters and differentiated computing power.Edge computing devices do not need to run intensive computing tasks anytime and anywhere generally, so idle computing resources should be shared to other applications through the network to improve utilization.
+
+The mechanism can dynamically assign suitable edge computing resources for computing tasks according to the computing power and free/busy states.
+This can prevent the computing tasks to be migrated to a computing node that is overloaded with system tasks, which will avoid impacting the overall performance
+of system.
+
+\subsection{SDEC Controller}
+
+The centralized control unit is usually the core of overall system.
+As the central pivot of SDEC paradigm, SDEC controller mainly implements the management and control of abstracted edge resources.It serves as a sort of edge OS for underlying edge hardware.By taking the management and control functions off of the hardware and running it as software instead, the SDEC controller enables intelligent and automatic management for edge resources, and ensures the flexibility of overall edge system.They are responsible for the management and control of SDED, SDESto, SDECR and SDESer, respectivelyThese controller units interconnect and interact with each other to implement the allocation and collaboration among various edge resources.Providing the appropriate underlying edge resources for upper-level edge applications
+
+\subsection{Software-Defined Edge Service (SDESer)}
+
+The edge device, storage and computing resources collaborate with each other closely, so that various edge services can be implemented to support smart edge applications.Edge services are tightly coupled with underlying dedicated hardwares where development environment, interface and configuration are different.Standardized execution environment and management interfaces are built for virtual edge service functionsIn this way, multiple virtual edge service functions can share physical hardware.
+
+Multiple virtual edge service functions can share physical hardware
+These virtual function modules are provided to upper-level applications in a uniform manner.In this paradigm, various edge service functions can be flexibly combined and separated according to different demands.Various edge service functions can be flexibly combined and separated according to different demands
+It can shield the heterogeneity of underlying dedicated devices from the upper-level applications.
+
+\subsection{SDEC-BASED OPEN EDGE COMPUTING SYSTEM ARCHITECTURE}
+
+We will develop and deploy the proposed SDEC platform and smart edge computing application system mainly based on EdgeBase.These edge devices are interconnected and intercommunicated by local network to form the infrastructure of edge computing.SDEC platform SDEC platform is the core of the proposed edge computing architecture.
+
+It is the concrete implementation of SDED, SDESto, SDECR and SDESer. It is the concrete implementation of SDED, SDESto, SDECR and SDESer.This platform manages heterogeneous edge resources downward through the southbound API, and processes a large amount of heterogeneous data and multi-purpose application loads upward through the northbound API.Corresponding edge resources and services are matched and called to implement smart edge applications.
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{SDEC-Based Open IoT System Architecture}
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[scale=0.5]{ning3-2954528-small.png}
+\end{center}
+\caption{SDEC-based open IoT system architecture}
+\label{setup}
+\end{figure}
+
+Based on the above SDEC paradigm, we propose an SDEC-based open IoT system architecture shown in. Different from the traditional IoT architecture, the software-defined platform is added to achieve a highly automatic and intelligent edge computing system.
+
+The IoT system architecture contains four layers: 1) edge devices; 2) local network; 3) SDEC platform; and 4) smart edge applications. Their detailed introductions are as follows.
+
+1)Edge Devices: This layer includes various edge devices, i.e., general terminal device (GTD), edge computing node (ECN), edge management node (EMN), and edge storage device (ESD). In particular, EdgeBase is a customized ECN developed by ourselves. It can be also used as an EMN to load the SDEC platform.These edge devices are interconnected and intercommunicated by local network to form the infrastructure of edge computing.
+
+2)Local Networks: Different from the core networks, the local network is closer to the edge devices and the end users. It is responsible for interconnecting various edge devices and connecting them into the SDEC platform. Some communication protocols are in common use, for example, WiFi, Bluetooth, ZigBee, NB-IoT, NFC, etc.
+
+3)SDEC Platform: The SDEC platform is the core of the proposed IoT architecture. It is the concrete implementation of SDED, SDESto, SDECR, and SDESer. This platform manages the heterogeneous edge resources downward through the southbound API, which can be compatible with various communication protocols to realize the interaction between software and hardware part in SDEC, and the platform processes a large amount of heterogeneous data and multipurpose application loads upward through the northbound API. 
+
+4)Smart Edge Applications: This layer is oriented to the edge computing users to provide various smart edge applications, including smart elderlycare, smart community, smart home, etc. The demands of edge application scenarios are analyzed and understood by the SDEC platform, and corresponding edge resources and services are matched and called to implement the smart edge applications.
+
+\section{Application Case : Smart Factory}
+\begin{figure}[h]
+\begin{center}
+\includegraphics[scale=0.5]{ning7-2954528-small.png}
+\end{center}
+\caption{Illustration of a smart factory based on SDEC.}
+\label{setup}
+\end{figure}
+
+We use the proposed software-definition mechanism to abstract, model, and virtualize the hardware devices in factory, including industrial sensors, controllers, actuators, industrial gateways, edge computing nodes, private cloud servers, storage servers, etc.
+The goal of service is to provide an intelligent and automatic smart factory system.
+This will improve the flexibility of industrial control system, make use of the dynamic reconfiguration and collaboration of resources.
+
+\section{Conclusion}
+We have proposed an approach and principles of SDEC to synergistically manage different categories of edge resources and services.
+SDED, SDESto, SDECR and SDESer are proposed to respectively realize the software definition for edge device resources, edge storage resources, edge computing resources and edge services.
+We have designed a SDEC-based open edge computing system architecture and introduced its software definition mechanism in detail.
+The proposed approach can share, reuse and recombine edge resources and services.
+The upper-level applications are decoupled from the underlying physical devices.
+It provides an automated and autonomous edge framework to improve the overall service capability of the edge side
+
+
+\end{document}
